@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Manrope:wght@400;500;700&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'Manrope', sans-serif;
+  --color-work-start: #ffe4c7;
+  --color-work-mid: #d9f3ff;
+  --color-work-end: #fff7df;
+}
+
+@layer base {
+  body {
+    margin: 0;
+    font-family: var(--font-body);
+  }
+}
+
+@layer components {
+  .bg-work-gradient {
+    background-image: radial-gradient(circle at 10% 15%, var(--color-work-start), transparent 40%),
+      radial-gradient(circle at 80% 90%, var(--color-work-mid), transparent 42%),
+      linear-gradient(150deg, var(--color-work-end), #ffffff);
+  }
+
+  .tab-btn {
+    @apply rounded-lg px-3 py-2 text-sm font-semibold text-slate-600 transition;
+  }
+
+  .tab-btn-active {
+    @apply bg-white text-slate-900 shadow;
+  }
+
+  .field {
+    @apply rounded-lg border border-slate-300 px-4 py-2 text-sm outline-none transition focus:border-orange-500 focus:ring-2 focus:ring-orange-200;
+  }
+
+  .btn-primary {
+    @apply rounded-lg bg-slate-900 px-4 py-3 text-sm font-semibold text-white transition hover:bg-slate-800;
+  }
+
+  .refresh-btn {
+    @apply rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm font-semibold text-slate-700 transition hover:border-slate-400 hover:bg-slate-50;
+  }
+
+  .service-card {
+    @apply rounded-xl border border-slate-200 bg-slate-50 p-4 shadow-sm;
+  }
+
+  .stat-card {
+    @apply rounded-xl border border-slate-200/80 bg-white/80 p-4 shadow-sm;
+  }
+
+  .status-badge {
+    @apply rounded-full px-3 py-1 text-xs font-semibold;
+  }
+
+  .status-ok {
+    @apply bg-emerald-100 text-emerald-800;
+  }
+
+  .status-down {
+    @apply bg-rose-100 text-rose-700;
+  }
+}
