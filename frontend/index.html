@@ -2,12 +2,48 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>frontend</title>
+    <link rel="stylesheet" href="./src/index.css" />
+    <title>WorkLink</title>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <main class="page">
+      <div class="shell">
+        <header class="header">
+          <div>
+            <p class="eyebrow">Kaam-Do Platform</p>
+            <h1>WorkLink</h1>
+            <p class="subtitle">Post jobs, find work, and reach local services in one place.</p>
+            <div class="status-row">
+              <span id="api-status" class="status-badge status-down">API Offline</span>
+              <button id="recheck-api" class="btn-secondary" type="button">Recheck API</button>
+            </div>
+          </div>
+          <nav class="navbar" aria-label="Main navigation">
+            <a class="nav-link active" href="./index.html">Post Job</a>
+            <a class="nav-link" href="./find.html">Find Jobs</a>
+            <a class="nav-link" href="./services.html">Services</a>
+          </nav>
+        </header>
+
+        <p id="notice" class="notice" hidden></p>
+
+        <section id="post" class="panel is-visible">
+          <h2>Post a Local Job</h2>
+          <p class="panel-subtitle">Share openings quickly for nearby workers.</p>
+          <form id="post-job-form" class="grid-form">
+            <input class="field" name="title" placeholder="Job title" required />
+            <input class="field" name="salary" placeholder="Salary" required />
+            <input class="field" name="location" placeholder="Location" required />
+            <input class="field" name="contactNumber" placeholder="Contact number" required />
+            <input class="field span-2" name="category" placeholder="Category (Electrician, Driver, Cook...)" />
+            <textarea class="field span-2" name="description" placeholder="Job description"></textarea>
+            <button class="btn-primary span-2" type="submit">Publish Job</button>
+          </form>
+        </section>
+      </div>
+    </main>
+
+    <script type="module" src="./src/app.js"></script>
   </body>
 </html>

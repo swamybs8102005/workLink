@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/index.css" />
+    <title>WorkLink | Services</title>
+  </head>
+  <body>
+    <main class="page">
+      <div class="shell">
+        <header class="header">
+          <div>
+            <p class="eyebrow">Kaam-Do Platform</p>
+            <h1>WorkLink</h1>
+            <p class="subtitle">Find trusted local service providers near you.</p>
+            <div class="status-row">
+              <span id="api-status" class="status-badge status-down">API Offline</span>
+              <button id="recheck-api" class="btn-secondary" type="button">Recheck API</button>
+            </div>
+          </div>
+          <nav class="navbar" aria-label="Main navigation">
+            <a class="nav-link" href="./index.html">Post Job</a>
+            <a class="nav-link" href="./find.html">Find Jobs</a>
+            <a class="nav-link active" href="./services.html">Services</a>
+          </nav>
+        </header>
+
+        <p id="notice" class="notice" hidden></p>
+
+        <section class="panel is-visible">
+          <h2>On-Demand Services</h2>
+          <p class="panel-subtitle">Call available workers directly for urgent tasks.</p>
+          <div id="services-list" class="cards"></div>
+
+          <div class="join-box">
+            <h3>Join as a Service Provider</h3>
+            <form id="service-form" class="grid-form">
+              <input class="field" name="name" placeholder="Full name or shop name" required />
+              <input class="field" name="serviceType" placeholder="Service type" required />
+              <input class="field" name="location" placeholder="Location" required />
+              <input class="field" name="phone" placeholder="Phone number" required />
+              <button class="btn-primary span-2" type="submit">Add Service Profile</button>
+            </form>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script type="module" src="./src/app.js"></script>
+  </body>
+</html>

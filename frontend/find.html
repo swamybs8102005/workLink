@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/index.css" />
+    <title>WorkLink | Find Jobs</title>
+  </head>
+  <body>
+    <main class="page">
+      <div class="shell">
+        <header class="header">
+          <div>
+            <p class="eyebrow">Kaam-Do Platform</p>
+            <h1>WorkLink</h1>
+            <p class="subtitle">Browse open jobs and apply in minutes.</p>
+            <div class="status-row">
+              <span id="api-status" class="status-badge status-down">API Offline</span>
+              <button id="recheck-api" class="btn-secondary" type="button">Recheck API</button>
+            </div>
+          </div>
+          <nav class="navbar" aria-label="Main navigation">
+            <a class="nav-link" href="./index.html">Post Job</a>
+            <a class="nav-link active" href="./find.html">Find Jobs</a>
+            <a class="nav-link" href="./services.html">Services</a>
+          </nav>
+        </header>
+
+        <p id="notice" class="notice" hidden></p>
+
+        <section class="panel is-visible">
+          <div class="panel-head">
+            <h2>Find a Job</h2>
+            <div class="search-row">
+              <input id="job-search" class="field" placeholder="Search by title, location or category" />
+              <button id="refresh-jobs" class="btn-secondary" type="button">Refresh</button>
+            </div>
+          </div>
+          <div id="jobs-list" class="cards"></div>
+        </section>
+      </div>
+    </main>
+
+    <script type="module" src="./src/app.js"></script>
+  </body>
+</html>

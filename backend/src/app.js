@@ -10,9 +10,35 @@ dotenv.config();
 
 const app = express();
 
+const configuredOrigins = (process.env.CLIENT_URL || '')
+  .split(',')
+  .map((origin) => origin.trim())
+  .filter(Boolean);
+
+const isLocalDevOrigin = (origin) => {
+  return /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/i.test(origin);
+};
+
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || true,
+    origin: (origin, callback) => {
+      if (!origin) {
+        callback(null, true);
+        return;
+      }
+
+      if (origin === 'null') {
+        callback(null, true);
+        return;
+      }
+
+      if (configuredOrigins.length === 0 || configuredOrigins.includes(origin) || isLocalDevOrigin(origin)) {
+        callback(null, true);
+        return;
+      }
+
+      callback(new Error(`CORS blocked for origin: ${origin}`));
+    },
   })
 );
 app.use(express.json());
